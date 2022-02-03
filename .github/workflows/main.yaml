@@ -22,7 +22,7 @@ jobs:
 
       - name: Print test
         if: steps.cache.outputs.cache-hit
-        run: cat test
+        run: cat ~/test
 
       - name: Save test
-        run: env > test
+        run: env > ~/test
