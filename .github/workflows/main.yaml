@@ -15,9 +15,9 @@ jobs:
 
         with:
           path: ~/test
-          key: ${{ runner.os }}-build-${{ hashFiles('~/test') }}
+          key: ${{ runner.os }}-build2-${{ hashFiles('~/test') }}
           restore-keys: |
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-build2-
             ${{ runner.os }}-
 
       - name: Print test
