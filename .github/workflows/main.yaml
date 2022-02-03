@@ -10,28 +10,31 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Save test
-        run: env > ~/test
+        run: env > test
 
       - name: pwd
         run: pwd
 
-      - name: Save test
+      - name: Key test
         run: echo build-${{ hashFiles('/home/runner/work/test-github-actions-cache/test-github-actions-cache/test') }}
 
+      - name: Key test
+        run: echo build-${{ hashFiles('test') }}
+
       - name: Print test
-        run: cat ~/test
+        run: cat test
 
       - name: Cache file
         id: cache
         uses: actions/cache@v2
 
         with:
-          path: ~/test
-          key: ${{ runner.os }}3-build-${{ hashFiles('**/test') }}
+          path: test
+          key: ${{ runner.os }}3-build-${{ hashFiles('test') }}
           restore-keys: |
             ${{ runner.os }}3-build-
             ${{ runner.os }}3-
 
       - name: Print test
         if: steps.cache.outputs.cache-hit
-        run: cat ~/test
+        run: cat test
