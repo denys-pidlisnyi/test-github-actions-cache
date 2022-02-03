@@ -1,0 +1,28 @@
+name: Test cache
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache file
+        id: cache
+        uses: actions/cache@v2
+
+        with:
+          path: ~/test
+          key: ${{ runner.os }}-build-${{ hashFiles('**/test') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Print test
+        if: steps.cache.outputs.cache-hit
+        run: cat test
+
+      - name: Save test
+        run: env > test
