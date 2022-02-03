@@ -9,20 +9,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Save test
+        run: env > ~/test
+
       - name: Cache file
         id: cache
         uses: actions/cache@v2
 
         with:
           path: ~/test
-          key: ${{ runner.os }}2-build2-${{ hashFiles('~/test') }}
+          key: ${{ runner.os }}3-build-${{ hashFiles('~/test') }}
           restore-keys: |
-            ${{ runner.os }}2-build2-
-            ${{ runner.os }}2-
+            ${{ runner.os }}3-build-
+            ${{ runner.os }}3-
 
       - name: Print test
         if: steps.cache.outputs.cache-hit
         run: cat ~/test
-
-      - name: Save test
-        run: env > ~/test
