@@ -13,7 +13,7 @@ jobs:
         run: env > ~/test
 
       - name: Save test
-        run: echo ${{ runner.os }}3-build-${{ hashFiles('~/test') }}
+        run: echo ${{ runner.os }}3-build-${{ hashFiles('**/test') }}
 
       - name: Print test
         run: cat ~/test
@@ -24,7 +24,7 @@ jobs:
 
         with:
           path: ~/test
-          key: ${{ runner.os }}3-build-${{ hashFiles('~/test') }}
+          key: ${{ runner.os }}3-build-${{ hashFiles('**/test') }}
           restore-keys: |
             ${{ runner.os }}3-build-
             ${{ runner.os }}3-
