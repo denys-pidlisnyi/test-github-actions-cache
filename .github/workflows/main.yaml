@@ -13,7 +13,7 @@ jobs:
         run: env > ~/test
 
       - name: Save test
-        run: echo ${{ runner.os }}3-build-${{ hashFiles('**/test') }}
+        run: echo build-${{ hashFiles('*/test') }}
 
       - name: Print test
         run: cat ~/test
