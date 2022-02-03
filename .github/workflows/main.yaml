@@ -15,10 +15,10 @@ jobs:
 
         with:
           path: ~/test
-          key: ${{ runner.os }}-build2-${{ hashFiles('~/test') }}
+          key: ${{ runner.os }}2-build2-${{ hashFiles('~/test') }}
           restore-keys: |
-            ${{ runner.os }}-build2-
-            ${{ runner.os }}-
+            ${{ runner.os }}2-build2-
+            ${{ runner.os }}2-
 
       - name: Print test
         if: steps.cache.outputs.cache-hit
