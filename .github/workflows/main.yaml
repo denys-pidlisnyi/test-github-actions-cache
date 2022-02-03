@@ -12,6 +12,9 @@ jobs:
       - name: Save test
         run: env > ~/test
 
+      - name: Save test
+        run: echo ${{ runner.os }}3-build-${{ hashFiles('~/test') }}
+
       - name: Cache file
         id: cache
         uses: actions/cache@v2
