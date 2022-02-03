@@ -12,6 +12,9 @@ jobs:
       - name: Save test
         run: env > ~/test
 
+      - name: pwd
+        run: pwd
+
       - name: Save test
         run: echo build-${{ hashFiles('/home/runner/test') }}
 
