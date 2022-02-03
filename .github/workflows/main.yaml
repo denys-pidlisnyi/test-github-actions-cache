@@ -16,7 +16,7 @@ jobs:
         run: pwd
 
       - name: Save test
-        run: echo build-${{ hashFiles('/home/runner/test') }}
+        run: echo build-${{ hashFiles('/home/runner/work/test-github-actions-cache/test-github-actions-cache/test') }}
 
       - name: Print test
         run: cat ~/test
